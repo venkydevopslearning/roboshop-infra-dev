@@ -1,0 +1,20 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Action": "ssm:GetParameter",
+			"Effect": "Allow",
+			"Resource": "arn:aws:ssm:us-east-1:525945693029:parameter/roboshop/${environment}/mysql_root_password"
+		},
+		{
+			"Action": "ssm:DescribeParameters",
+			"Effect": "Allow",
+			"Resource": "*"
+		},
+		{
+			"Action": "kms:Decrypt",
+			"Effect": "Allow",
+			"Resource": "*"
+		}
+	]
+}

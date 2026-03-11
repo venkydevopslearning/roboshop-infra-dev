@@ -37,7 +37,7 @@ resource "terraform_data" "catalogue" {
   }
 }
 
-/* resource "aws_ec2_instance_state" "catalogue" {
+resource "aws_ec2_instance_state" "catalogue" {
   instance_id = aws_instance.catalogue.id
   state       = "stopped"
   depends_on = [terraform_data.catalogue]
@@ -55,7 +55,7 @@ resource "aws_ami_from_instance" "catalogue" {
   )
 }
 
-resource "aws_lb_target_group" "catalogue" {
+/* resource "aws_lb_target_group" "catalogue" {
   name     = "${var.project}-${var.environment}-catalogue"
   port     = 8080
   protocol = "HTTP"

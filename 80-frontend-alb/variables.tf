@@ -13,11 +13,3 @@ variable "zone_id" {
 variable "domain_name" {
     default = "prakritiorganics.store"
 }
-
-variable "app_version" {
-    default = "v3"
-}
-
-variable "app_version" {
-  default = "v3"
-}

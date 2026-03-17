@@ -7,7 +7,7 @@ terraform {
     }
     backend "s3" {
       bucket  = "remote-state-88s-aws-dev" # Replace with your unique bucket name
-      key     = "roboshop-dev-catalogue"
+      key     = "roboshop-dev-acm"
       region  = "us-east-1"
       encrypt = true
       use_lockfile   = true
@@ -15,6 +15,4 @@ terraform {
   }
  provider "aws" {
    region = "us-east-1"
-   
-
- }  
+}  

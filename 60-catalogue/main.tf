@@ -44,6 +44,7 @@ resource "aws_ec2_instance_state" "catalogue" {
 }
 
 resource "aws_ami_from_instance" "catalogue" {
+  # roboshop-dev-catalogue-v3-i-h468sghy
   name               = "${var.project}-${var.environment}-catalogue-${var.app_version}-${aws_instance.catalogue.id}"
   source_instance_id = aws_instance.catalogue.id
   depends_on = [aws_ec2_instance_state.catalogue]
@@ -115,7 +116,7 @@ resource "aws_launch_template" "catalogue" {
         },
         local.common_tags
     )
-} 
+}
 
 resource "aws_autoscaling_group" "catalogue" {
   name                      = "${var.project}-${var.environment}-catalogue"
@@ -135,12 +136,12 @@ resource "aws_autoscaling_group" "catalogue" {
   vpc_zone_identifier       = [local.private_subnet_id]
   target_group_arns = [aws_lb_target_group.catalogue.arn]
 
-    instance_refresh {
+  instance_refresh {
     strategy = "Rolling"
     preferences {
       min_healthy_percentage = 50
     }
-        triggers = ["launch_template"]
+    triggers = ["launch_template"]
   }
 
   dynamic "tag" {

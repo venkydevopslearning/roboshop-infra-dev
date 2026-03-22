@@ -120,7 +120,7 @@ resource "aws_launch_template" "catalogue" {
 
 resource "aws_autoscaling_group" "catalogue" {
   name                      = "${var.project}-${var.environment}-catalogue"
-  max_size                  = 10
+  max_size                  = 2
   min_size                  = 1
   health_check_grace_period = 120
   health_check_type         = "ELB"
